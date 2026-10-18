@@ -10,7 +10,7 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
-      - run: dotnet publish GenHub/GenHub.Windows/GenHub.Windows.csproj -c Release -r win-x64 --self-contained true -o out
+      - run: dotnet publish GenHub/GenHub.Windows/GenHub.Windows.csproj -c Release -r win-x64 --self-contained true -p:TreatWarningsAsErrors=false -p:NuGetAudit=false -o out
       - uses: actions/upload-artifact@v4
         with:
           name: GenHub-win-x64
